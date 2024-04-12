@@ -18,18 +18,16 @@ public class Main extends Application {
 	public void start(Stage stage) throws Exception {
 		
 		Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-        Scene scene = new Scene(root, Color.SKYBLUE);
-
+        Scene scene = new Scene(root);
+//        scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+        String css = this.getClass().getResource("application.css").toExternalForm();
+        
         stage.setTitle("Dhiraj Prajapati");
-//        stage.setResizable(false);
         Image icon = new Image("111.png");
         stage.getIcons().add(icon);
-
-//        stage.setFullScreen(true);
-//        stage.setFullScreenExitHint("You can't ESCAPE unless you press z");
-//        stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("z"));
+        
         stage.setScene(scene);
-		
+		scene.getStylesheets().add(css);
 		stage.show();
 	}
 }

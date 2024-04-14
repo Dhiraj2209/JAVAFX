@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -28,7 +29,7 @@ public class SceneController {
 	}
 	
 	public void switchToShape(ActionEvent e) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("Shape.fxml"));
+		root = FXMLLoader.load(getClass().getResource("Shape.fxml"));
 		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
 		stage.setTitle("Shape Window");
 		scene = new Scene(root);
@@ -37,27 +38,11 @@ public class SceneController {
 	}
 	
 	@FXML
-	private Circle c;
-	private double x;
-	private double y;
+	Label nameLabel;
 	
-	public void up(ActionEvent e) {
-		System.out.println("UP");
-		c.setCenterY(y-=10);
+	public void displayName(String userName) {
+		nameLabel.setText("HY: " + userName);
+		
 	}
 	
-	public void down(ActionEvent e) {
-		System.out.println("DOWN");
-		c.setCenterY(y+=10);
-	}
-	
-	public void right(ActionEvent e) {
-		System.out.println("RIGHT");
-		c.setCenterX(x+=10);
-	}
-	
-	public void left(ActionEvent e) {
-		System.out.println("LEFT");
-		c.setCenterX(x-=10);
-	}
 }

@@ -8,7 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -68,5 +73,27 @@ public class Controller {
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	@FXML
+	private Button exitbutton;
+	@FXML
+	private AnchorPane mainpane;
+	
+	Stage s;
+	
+	public void exit (ActionEvent e) {
+		
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("EXIT");
+		alert.setHeaderText("You are about to exit from application");
+		alert.setContentText("Do you want to save before exiting ?: ");
+		
+		if(alert.showAndWait().get() == ButtonType.OK) {
+			
+			s = (Stage) mainpane.getScene().getWindow();
+			System.out.println("You Successfully Exited application");
+			s.close();
+		}
 	}
 }

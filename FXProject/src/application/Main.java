@@ -43,7 +43,7 @@ public class Main extends Application {
 	
 	public void exit (Stage s) {
 		
-		Alert alert = new Alert(AlertType.CONFIRMATION);
+		Alert alert = new  Alert(AlertType.CONFIRMATION); //Custom Alert.
 		alert.setTitle("EXIT");
 		alert.setHeaderText("You are about to exit from application");
 		alert.setContentText("Do you want to save before exiting ?: ");

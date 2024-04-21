@@ -27,7 +27,7 @@ public class Main extends Application {
         String css = this.getClass().getResource("application.css").toExternalForm();
         
         stage.setTitle("Dhiraj Prajapati");
-        Image icon = new Image("111.png");
+        Image icon = new Image("111.jpg");
         stage.getIcons().add(icon);
         
         stage.setScene(scene);

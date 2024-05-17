@@ -15,13 +15,21 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         items = FXCollections.observableArrayList(
-                new Item("Apple", 1.0, 50),
-                new Item("Banana", 0.5, 100),
-                new Item("Carrot", 0.7, 200),
-                new Item("Date", 1.2, 75)
+        		new Item("Wheat", 30, 100),
+                new Item("Rice", 50, 100),
+                new Item("Bajra", 25, 100),
+                new Item("Jowar", 28, 100),
+                new Item("Maize", 22, 100),
+                new Item("Barley", 26, 100),
+                new Item("Ragi", 35, 100),
+                new Item("Chana Dal", 60, 100),
+                new Item("Moong Dal", 70, 100),
+                new Item("Urad Dal", 80, 100),
+                new Item("Masoor Dal", 65, 100),
+                new Item("Arhar Dal", 90, 100)
         );
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
         Parent root = loader.load();
 
         MainController controller = loader.getController();
@@ -67,6 +75,6 @@ class Item {
 
     @Override
     public String toString() {
-        return name + " - $" + price + " - Qty: " + quantity;
+        return name + " - ₹" + price + " - Qty: " + quantity;
     }
 }

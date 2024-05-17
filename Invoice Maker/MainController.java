@@ -55,7 +55,7 @@ public class MainController {
 
     @FXML
     void initialize() {
-        shopNameLabel.setText("Your Shop Name");
+        shopNameLabel.setText("Prakash Trading Co.");
         searchField.addEventHandler(KeyEvent.KEY_RELEASED, event -> filterItems());
     }
 
@@ -72,18 +72,40 @@ public class MainController {
         for (Item item : items) {
             VBox itemBox = new VBox(5);
             itemBox.getStyleClass().add("item-box");
-            
+
             Label nameLabel = new Label(item.getName());
             nameLabel.getStyleClass().add("label");
-            Label priceLabel = new Label("$" + item.getPrice());
+            Label priceLabel = new Label("₹" + item.getPrice());
             priceLabel.getStyleClass().add("label");
             Label quantityLabel = new Label("Available Qty: " + item.getQuantity());
             quantityLabel.getStyleClass().add("label");
+
+            HBox quantitySelector = new HBox(5);
+            Button decreaseButton = new Button("-");
             TextField quantityField = new TextField("1");
-            Button addButton = new Button("Add to Invoice");
-            addButton.getStyleClass().add("add-button");
+            quantityField.setPrefWidth(40); // Set a preferred width for the text field
+            Button increaseButton = new Button("+");
+            Button addButton = new Button("->");
+
+            decreaseButton.setOnAction(e -> {
+                int currentQty = Integer.parseInt(quantityField.getText());
+                if (currentQty > 1) {
+                    quantityField.setText(String.valueOf(currentQty - 1));
+                }
+            });
+
+            increaseButton.setOnAction(e -> {
+                int currentQty = Integer.parseInt(quantityField.getText());
+                if (currentQty < item.getQuantity()) {
+                    quantityField.setText(String.valueOf(currentQty + 1));
+                }
+            });
+
             addButton.setOnAction(e -> addItemToInvoice(item, Integer.parseInt(quantityField.getText())));
-            itemBox.getChildren().addAll(nameLabel, priceLabel, quantityLabel, quantityField, addButton);
+
+            quantitySelector.getChildren().addAll(decreaseButton, quantityField, increaseButton, addButton);
+
+            itemBox.getChildren().addAll(nameLabel, priceLabel, quantityLabel, quantitySelector);
             itemTilePane.getChildren().add(itemBox);
         }
     }
@@ -117,7 +139,7 @@ public class MainController {
             HBox invoiceItem = new HBox(10);
             Label nameLabel = new Label(item.getName());
             Label quantityLabel = new Label("Qty: " + quantity);
-            Label priceLabel = new Label("$" + price);
+            Label priceLabel = new Label("₹" + price + "/kg");
             Button removeButton = new Button("Remove");
             removeButton.getStyleClass().add("remove-button");
             removeButton.setOnAction(e -> removeItemFromInvoice(item));
@@ -126,9 +148,8 @@ public class MainController {
             invoiceItemList.getChildren().add(invoiceItem);
         }
 
-        totalLabel.setText("Total: $" + total);
+        totalLabel.setText("Total: ₹" + total);
 
-        // Re-display items to update their available quantity
         displayItems(items);
     }
 

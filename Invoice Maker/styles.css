@@ -1,22 +1,16 @@
-/* styles.css */
-
 /* Root Pane Styling */
 .root {
-    -fx-font-family: 'Arial';
+    -fx-font-family: 'Arial', sans-serif;
     -fx-font-size: 14px;
+    -fx-background-color: #f4f4f9;
 }
 
 /* Shop Name Label */
 #shopNameLabel {
-    -fx-text-fill: #2c3e50;
+    -fx-text-fill: #34495e;
+    -fx-font-size: 36px;
     -fx-padding: 20 0 20 0;
-}
-.label {
-    -fx-font-family: Arial, sans-serif; /* Use appropriate font family */
-}
-
-#shopNameLabel {
-    -fx-font-size: 36px; /* Make the company name bigger */
+    -fx-font-weight: bold;
 }
 
 /* Search Field and Sort Button */
@@ -26,15 +20,31 @@
     -fx-border-radius: 10;
     -fx-background-color: #ecf0f1;
     -fx-border-color: #bdc3c7;
+    -fx-font-size: 16px;
 }
 
+TextField
+{
+	-fx-padding: 10;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-background-color: #ecf0f1;
+    -fx-border-color: #bdc3c7;
+    -fx-font-size: 14px;
+}
 #sortButton {
     -fx-background-color: #3498db;
-    -fx-text-fill: #ecf0f1;
+    -fx-text-fill: #ffffff;
     -fx-background-radius: 10;
     -fx-padding: 10;
     -fx-border-radius: 10;
+    -fx-font-size: 14px;
     -fx-border-color: #2980b9;
+    -fx-cursor: hand;
+    -fx-min-width: 100px; /* Set the minimum width */
+    -fx-min-height: 40px; /* Set the minimum height */
+    -fx-max-width: 100px; /* Set the maximum width */
+    -fx-max-height: 40px;
 }
 
 /* Item Box */
@@ -44,36 +54,59 @@
     -fx-padding: 10;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 0);
+    -fx-spacing: 10;
 }
-
+#itemTilePane {
+	-fx-padding: 12;
+    -fx-background-radius: 10;
+}
 /* Item Box Labels */
 .item-box .label {
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
+    -fx-font-size: 14px;
 }
 
-/* Add to Invoice Button */
-.add-button {
-    -fx-background-color: #2ecc71;
-    -fx-text-fill: #ecf0f1;
-    -fx-background-radius: 10;
-    -fx-padding: 10;
-    -fx-border-radius: 10;
-    -fx-border-color: #27ae60;
+/* Quantity Selector Buttons */
+.button {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-padding: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #2980b9;
+    -fx-cursor: hand;
+    -fx-min-width: 40px; /* Set the minimum width */
+    -fx-min-height: 40px; /* Set the minimum height */
+    -fx-max-width: 40px; /* Set the maximum width */
+    -fx-max-height: 40px;
+}
+
+.button:hover {
+    -fx-background-color: #3498db;
 }
 
 /* Invoice Section */
 #invoiceVBox {
     -fx-padding: 10;
-    -fx-background-color: #f9f9f9;
+    -fx-background-color: #ffffff;
     -fx-background-radius: 10;
     -fx-border-color: #bdc3c7;
     -fx-border-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 0);
+    -fx-pref-width: 420px;
+    -fx-pref-height: 500px;
 }
 
+#invoiceItemList{
+		-fx-pref-width: 400px;
+    -fx-pref-height: 480px;
+    -fx-font-size: 15px;
+}
 /* Customer Details Labels */
 .invoice-section-label {
-    -fx-font-size: 16px;
+    -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
@@ -83,24 +116,129 @@
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #e74c3c;
+    -fx-alignment: center-right;
 }
 
 /* Remove Button */
 .remove-button {
     -fx-background-color: #e74c3c;
-    -fx-text-fill: #ecf0f1;
-    -fx-background-radius: 10;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
     -fx-padding: 5;
-    -fx-border-radius: 10;
-    -fx-border-color: #c0392b;
+    -fx-border-radius: 5;
+    -fx-border-color: #e74c3c;
+    -fx-cursor: hand;
+    -fx-min-width: 75px; /* Set the minimum width */
+    -fx-max-width: 75px; /* Set the maximum width */
+    -fx-alignment: center;
 }
+
+.remove-button:hover {
+    -fx-background-color: #c0392b;
+}
+
 
 /* Print Invoice Button */
 #printButton {
     -fx-background-color: #3498db;
-    -fx-text-fill: #ecf0f1;
+    -fx-text-fill: #ffffff;
     -fx-background-radius: 10;
     -fx-padding: 10;
     -fx-border-radius: 10;
     -fx-border-color: #2980b9;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-min-width: 125px; /* Set the minimum width */
+    -fx-min-height: 40px; /* Set the minimum height */
+    -fx-max-width: 125px; /* Set the maximum width */
+    -fx-max-height: 40px;
+    -fx-alignment: center; 
+
 }
+
+#printButton:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* General Button Styling */
+.add-button {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-padding: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #27ae60;
+    -fx-cursor: hand;
+}
+
+.add-button:hover {
+    -fx-background-color: #27ae60;
+}
+
+#quantityField {
+    -fx-alignment: center;
+    -fx-font-size: 14px;
+    -fx-pref-width: 50px;
+    -fx-min-width: 40px; /* Set the minimum width */
+    -fx-min-height: 40px; /* Set the minimum height */
+    -fx-max-width: 40px; /* Set the maximum width */
+    -fx-max-height: 40px;
+}
+
+
+#custsec {
+    -fx-pref-width: 400px;
+}
+/* TableView Column Lines */
+.table-view .column-header-background {
+    -fx-background-color: transparent; /* Transparent background for column header */
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-border-color: #bdc3c7; /* Vertical lines between columns */
+    -fx-border-width: 0 1px; /* Border width for vertical lines */
+}
+
+/* Header Label Styling */
+.header-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Item Label Styling */
+.item-label {
+    -fx-font-size: 14px;
+}
+
+/* GridPane Styling */
+.grid-pane {
+    -fx-hgap: 10px; /* Horizontal gap between cells */
+    -fx-vgap: 5px; /* Vertical gap between cells */
+}
+
+/* TableView Cell Alignment */
+.table-view .table-cell {
+    -fx-alignment: center; /* Center alignment for cell values */
+}
+
+/* TableView Column Lines */
+.table-view .column-header-background {
+    -fx-background-color: transparent; /* Transparent background for column header */
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-border-color: #bdc3c7; /* Vertical lines between columns */
+    -fx-border-width: 0 1px; /* Border width for vertical lines */
+}
+
+/* TableView Row Lines */
+.table-view .table-row-cell {
+    -fx-border-color: #bdc3c7; /* Horizontal lines between rows */
+    -fx-border-width: 1px 0; /* Border width for horizontal lines */
+}
+
+/* TableView Row Hover Effect */
+.table-view .table-row-cell:hover {
+    -fx-background-color: #ecf0f1; /* Hover background color */
+}
+

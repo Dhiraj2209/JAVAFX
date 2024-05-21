@@ -15,18 +15,18 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         items = FXCollections.observableArrayList(
-        		new Item("Wheat", 30, 100),
-                new Item("Rice", 50, 100),
-                new Item("Bajra", 25, 100),
-                new Item("Jowar", 28, 100),
-                new Item("Maize", 22, 100),
-                new Item("Barley", 26, 100),
-                new Item("Ragi", 35, 100),
-                new Item("Chana Dal", 60, 100),
-                new Item("Moong Dal", 70, 100),
-                new Item("Urad Dal", 80, 100),
-                new Item("Masoor Dal", 65, 100),
-                new Item("Arhar Dal", 90, 100)
+        		new Item("Wheat", 33, 1000),
+                new Item("Rice", 35, 1000),
+                new Item("Basmati Rice", 95,1000),
+                new Item("Bajra", 25, 1000),
+                new Item("Jowar", 60, 1000),
+                new Item("Maize", 32, 1000),
+                new Item("Ragi", 70, 700),
+                new Item("Chana Dal", 120, 100),
+                new Item("Moong Dal", 130, 100),
+                new Item("Urad Dal", 160, 100),
+                new Item("Masoor Dal", 130, 100),
+                new Item("Arhar Dal", 180, 100)
         );
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
